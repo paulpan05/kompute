@@ -71,7 +71,7 @@ function(check_vulkan_version)
         message(FATAL_ERROR "No GPU supporting Vulkan found in vulkaninfo. Does your GPU (driver) support Vulkan?")
     endif()
 
-    string(REGEX MATCHALL "apiVersion[ ]*=[ ]*[0-9a-fA-F]*[ ]*[(]*([0-9]+[.][0-9]+[.][0-9]+)[)]*" GPU_API_VERSIONS ${VULKAN_INFO_OUTPUT})
+    string(REGEX MATCHALL "apiVersion[ ]*=[ ]*([0-9]+[.][0-9]+[.][0-9]+)[ ]*[(]*[0-9a-fA-F]*[)]*" GPU_API_VERSIONS ${VULKAN_INFO_OUTPUT})
     if(NOT GPU_API_VERSIONS)
         message(FATAL_ERROR "No valid Vulkan API version found in vulkaninfo. Does your GPU (driver) support Vulkan?")
     endif()
